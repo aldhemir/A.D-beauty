@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist Diário</title>
+  <style>
+    /* Definindo estilo base */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #ffe6f2;
+      color: #333;
+    }
+    
+    /* Cabeçalhos */
+    h1 {
+      color: #d147a3;
+      text-align: center;
+      font-size: 2em;
+    }
+
+    h2 {
+      color: #cc6699;
+      margin-bottom: 10px;
+    }
+
+    /* Estilizando seções dos dias */
+    .day-section {
+      background-color: #ffe6f2;
+      border: 1px solid #ffb3d9;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estilizando lista de tarefas */
+    .task, label {
+      display: block;
+      padding: 5px;
+      font-size: 1em;
+      color: #333;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+      accent-color: #cc6699;
+    }
+
+    /* Estilo para a lista mensal */
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 5px;
+      color: #4d004d;
+    }
+
+     /* Estilo para os botões de navegação */
+  .nav-button {
+    background-color: #ff6699; /* Cor igual ao dos outros botões */
+    color: white;
+    border: none;
+    padding: 12px 30px; /* Tamanho consistente */
+    margin: 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .nav-button:hover {
+    background-color: #ff4d88; /* Cor ao passar o mouse */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3); /* Sombra adicional */
+    transform: translateY(-3px);
+  }
+
+  .nav-button:active {
+    background-color: #ff3366; /* Cor ao clicar */
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+    /* Estilo para o botão de limpar */
+    #clear-btn {
+      background: linear-gradient(135deg, #ff7f7f, #ff4d4d);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      cursor: pointer;
+      font-size: 1.1em;
+      border-radius: 25px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      display: block;
+      margin: 20px auto; /* Centraliza o botão */
+    }
+
+    #clear-btn:hover {
+      background: linear-gradient(135deg, #ff6666, #ff3333);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+      transform: translateY(-3px);
+    }
+
+    #clear-btn:active {
+      background: linear-gradient(135deg, #ff4d4d, #ff1a1a);
+      transform: translateY(0);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    nav {
+    display: inline-block;
+    margin-right: 10px; /* Espaço entre os botões */
+  }
+  </style>
+</head>
+<body>
+
+  <h1>Checklist Diário</h1>
+
+    <!-- Navegação entre seções -->
+    <nav>
+        <!-- Link relativo para o menu -->
+        <button class="nav-button" onclick="window.location.href = '/login/menu.html';">Menu</button>
+    </nav>
+    <nav>
+      <!-- Link relativo para a página de cursos -->
+        <button class="nav-button" onclick="window.location.href = '/cursos/cursos.html';">Cursos</button>
+    </nav>
+
+  <!-- Botão para limpar todas as marcações -->
+  <button id="clear-btn">Limpar todas as marcações</button>
+
+  <h2>Segunda-feira</h2>
+  <div class="day-section" id="monday-tasks">
+    <label><input type="checkbox" data-task-id="mon-1"> 07:30 - Preparar recepção e ambiente (luz, ar, cheirinho, café)</label>
+    <label><input type="checkbox" data-task-id="mon-2"> 08:00 - Organização inicial e resposta de clientes</label>
+    <label><input type="checkbox" data-task-id="mon-3"> 09:00 - Fechar caixa e enviar relatório (Discord)</label>
+    <label><input type="checkbox" data-task-id="mon-4"> 10:00 - Kick-off com equipe</label>
+    <label><input type="checkbox" data-task-id="mon-5"> 11:00 - Feedback com Andressa</label>
+    <label><input type="checkbox" data-task-id="mon-6"> 11:30 - Pausa para almoço</label>
+    <label><input type="checkbox" data-task-id="mon-7"> 13:30 - Verificar banheiros</label>
+    <label><input type="checkbox" data-task-id="mon-8"> 14:00 - Confirmar clientes semanais com Pix reserva</label>
+    <label><input type="checkbox" data-task-id="mon-9"> 16:00 - Atualizar CRM (Sprinthub)</label>
+    <label><input type="checkbox" data-task-id="mon-10"> 17:00 - Fechar caixa e organizar recepção</label>
+    <label><input type="checkbox" data-task-id="mon-11"> 17:30 - Fechar atendimentos do dia</label>
+  </div>
+
+  <h2>Terça a Quinta-feira</h2>
+  <div class="day-section" id="weekday-tasks">
+    <label><input type="checkbox" data-task-id="tue-thu-1"> 07:30 - Preparar recepção e café</label>
+    <label><input type="checkbox" data-task-id="tue-thu-2"> 08:00 - Organização inicial e atendimentos WhatsApp</label>
+    <label><input type="checkbox" data-task-id="tue-thu-3"> 09:00 - Mensagens de bom dia para clientes</label>
+    <label><input type="checkbox" data-task-id="tue-thu-4"> 11:30 - Pausa para almoço</label>
+    <label><input type="checkbox" data-task-id="tue-thu-5"> 13:30 - Retorno de atendimentos e verificação do ambiente</label>
+    <label><input type="checkbox" data-task-id="tue-thu-6"> 17:30 - Organizar recepção, relatórios e fechar caixa</label>
+  </div>
+
+  <h2>Sexta-feira e Sábado</h2>
+  <div class="day-section" id="friday-saturday-tasks">
+    <label><input type="checkbox" data-task-id="fri-sat-1"> 07:30 - Organização da recepção</label>
+    <label><input type="checkbox" data-task-id="fri-sat-2"> 08:00 - Pagamentos das alunas</label>
+    <label><input type="checkbox" data-task-id="fri-sat-3"> 09:00 - Confirmações do dia e follow-up</label>
+    <label><input type="checkbox" data-task-id="fri-sat-4"> 11:30 - Pausa para almoço</label>
+    <label><input type="checkbox" data-task-id="fri-sat-5"> 13:30 - Retorno de atendimentos</label>
+    <label><input type="checkbox" data-task-id="fri-sat-6"> 15:00 - Atualizar CRM</label>
+    <label><input type="checkbox" data-task-id="fri-sat-7"> 17:30 - Fechamento do caixa e recepção</label>
+  </div>
+
+  <h2>Cronograma Mensal</h2>
+  <ul>
+    <li>Reunião quinzenal da equipe (Quinta-feira, 17h)</li>
+    <li>Fluxo de caixa diário</li>
+    <li>Emissão de notas fiscais (Sábados)</li>
+    <li>Feedback semanal (Segundas)</li>
+    <li>Kick-offs semanais (Segundas)</li>
+    <li>Mensagens de aniversário (Todo quinto dia útil do mês)</li>
+    <li>Relatório de vendas diários</li>
+  </ul>
+
+  <script>
+    // Função para limpar todas as tarefas marcadas
+    document.getElementById('clear-btn').addEventListener('click', function() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+    });
+  </script>
+</body>
+</html>
